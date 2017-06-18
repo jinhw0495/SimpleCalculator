@@ -11,9 +11,6 @@ int main(void) {
 			my_fscanf(fp, "%d %c %d", &operand1, &operator, &operand2);
 		}
 	}
-	int i = 65;
-	
-	printf("%c\n", i);
 	
 	return 0;
 }

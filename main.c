@@ -1,16 +1,20 @@
 #include <stdio.h>
 #include "operators.h"
 #include "my_fscanf.h"
-
-int main(void) {
+int main(void) { 
+	FILE* fp = fopen("points.txt", "r"); 
+	char type[10]; 
+	double x, y; 
+	int line; 
 	
-	fp = fopen("read.txt", "r");
-	if(fp!=NULL) {
-		my_fscanf(fp, "%d", &line);
-		for(int i=0; i<line && !feof(fp); i++) {
-			my_fscanf(fp, "%d %c %d", &operand1, &operator, &operand2);
-		}
-	}
-	
+	if(fp!=NULL) {  
+		my_fscanf(fp, "%d", &line);  
+		for(int i=0; i<line; i++) {   
+			my_fscanf(fp, "%s (%f,%f)", type, &x, &y);  
+			if(strcmp(type, "point") == 0) {  
+				printf("X: %f:, Y: %f\n", x, y);   
+			} 
+		} 
+	} 
 	return 0;
 }
